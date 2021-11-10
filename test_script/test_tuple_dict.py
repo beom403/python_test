@@ -9,6 +9,8 @@ print(day_tuple[1])
 
 # dictionary = key + value (like json)
 
+# python arg parse
+
 johanson = {
     "name": "johanson",
     "age": 40,

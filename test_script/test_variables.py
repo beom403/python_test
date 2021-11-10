@@ -14,3 +14,11 @@ print(type(a_number))
 print(type(a_float))
 print(type(a_boolean))
 print(type(a_none))
+
+def test_function():
+    print("asdf")
+    print("asdf")
+    print("asdf")
+
+var = test_function()
+print("var : ", var)

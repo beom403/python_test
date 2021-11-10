@@ -22,4 +22,5 @@ print(len(day_list))
 print(day_list[4])
 print(day_list[1:4])
 print(day_list[1:4:6])
+print(day_list[1:3])
 
