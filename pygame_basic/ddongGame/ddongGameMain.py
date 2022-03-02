@@ -1,5 +1,6 @@
 import pygame
 import os
+import random
 from pygame.constants import K_DOWN, K_UP
 from entityClass import Entity
 
@@ -14,7 +15,7 @@ screen_height = 600
 screen = pygame.display.set_mode((screen_width, screen_height))
 
 # set screen title
-pygame.display.set_caption("yuji vs ddong")
+pygame.display.set_caption("ddong game")
 
 # set clock
 clock = pygame.time.Clock()
@@ -76,7 +77,8 @@ ddongNum = 0
 def createDdong()->None:
     global ddongList
     global ddongNum
-    ddongList.append(Entity("ddong", "ddong", ddongFile))
+    ddongSize = Entity.defaultObjectSize * (random.randrange(50, 150) / 100)
+    ddongList.append(Entity("ddong", "ddong", ddongFile, ddongSize, ddongSize))
     ddongSoundEffect.play()
 
 
@@ -166,14 +168,14 @@ while running:
                 break
 
         # set background by color
-        screen.fill((0, 0, 255))
+        screen.fill((0xBE, 0xEB, 0xFD))
         # set instances
         for x in Entity.entityList:
             screen.blit(x.image, (x.rectangle.x, x.rectangle.y))
     else:
         checkGameEnd()
 
-    ddongScore = game_font.render(("Score : " + str(ddongNum)), True, (255, 255, 255))
+    ddongScore = game_font.render(("Score : " + str(ddongNum)), True, (0, 0, 0))
     # set score
     screen.blit(ddongScore, (0, 0))
     # update game screen

@@ -10,14 +10,13 @@ from pygame import image
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
 
-OBJECT_SIZE = 50
-
 class Entity:
     # static variables
     entityList = []
     speed = 10
+    defaultObjectSize = 50
 
-    def __init__(self, type, name, imageDirectory) -> None:
+    def __init__(self, type, name, imageDirectory, width = defaultObjectSize, height = defaultObjectSize) -> None:
         print("create ", name)
         # init attributes
         self.type = type
@@ -26,7 +25,7 @@ class Entity:
         self.image = pygame.image.load(imageDirectory)
         if type == "user" or type == "USER":
             # transform image scale
-            self.image = pygame.transform.scale(self.image, (OBJECT_SIZE, OBJECT_SIZE))
+            self.image = pygame.transform.scale(self.image, (width, height))
             # get rectangle
             self.rectangle = self.image.get_rect()
             # set init location
@@ -39,7 +38,7 @@ class Entity:
             self.rectangle.y = WINDOW_HEIGHT / 2 - self.rectangle.height / 2
         else:   # ddong
             # transform image scale
-            self.image = pygame.transform.scale(self.image, (OBJECT_SIZE, OBJECT_SIZE))
+            self.image = pygame.transform.scale(self.image, (width, height))
             # get rectangle
             self.rectangle = self.image.get_rect()
             # set init location
